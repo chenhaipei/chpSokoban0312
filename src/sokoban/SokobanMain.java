@@ -1,12 +1,7 @@
 package sokoban;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import java.awt.event.*;
 
 import javax.swing.*;
 
@@ -61,10 +56,12 @@ public class SokobanMain extends JFrame implements ItemListener, ActionListener 
         topPanel.add(tb1);
 
         bottomPanel = new JPanel(new GridLayout(2, 5, 10, 10));
-        lblStatus = new JLabel(" ");
+        lblStatus = new JLabel("Press → on the keyboard to start!");
         lblChp = new JLabel("Copyright © Haipei Chen ");
         bottomPanel.add(lblStatus);
         bottomPanel.add(lblChp);
+        lblStatus.setFont(new Font("Arial", Font.BOLD, 30));
+        lblStatus.setForeground(Color.black);
 
         //west: level and step information
         lblGateTitle = new JLabel("Level", JLabel.CENTER);
@@ -140,7 +137,6 @@ public class SokobanMain extends JFrame implements ItemListener, ActionListener 
         add(game, BorderLayout.CENTER);
         game.requestFocus();
 
-
         setSize(720, 600);      // Width-height
         setVisible(true);
         setLocationRelativeTo(null);
@@ -158,7 +154,6 @@ public class SokobanMain extends JFrame implements ItemListener, ActionListener 
         //Get the focus let people can move
         game.requestFocus();
     }
-
     public void actionPerformed(ActionEvent e) {
         String opt = e.getActionCommand().toString();
         switch (opt) {

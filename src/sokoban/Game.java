@@ -282,6 +282,7 @@ public class Game extends JPanel implements KeyListener {
 	}
 
 	public void keyPressed(KeyEvent e) {
+		SokobanMain.lblStatus.setText("");
 		switch (e.getKeyCode()) {
 		case KeyEvent.VK_LEFT:
 			//Press the "left" direction key
